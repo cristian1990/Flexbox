@@ -1,0 +1,66 @@
+*, *:before, *after {
+  box-sizing: inherit;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  /*FLEX*/
+  display: flex; /*Indico que quiero usar cajas flexibles*/
+  justify-content: center; /*centro horizontalmente*/
+  align-items: center; /*centro verticalmente*/
+}
+
+.contenedor {
+  width: 1000px;
+  min-height: 200px;
+  background-color: lightgray;
+  padding: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  /*FLEX*/
+  display: flex; /*Indico que quiero usar cajas flexibles*/
+  flex-wrap: wrap; /*Sin un elemento no cabe lo coloca abajo*/
+}
+
+.contenido {
+  background-color: #e89169;
+  width: 70%;
+  min-height: 500px;
+  border: 1px solid gray;
+  /*FLEX*/
+  flex-grow: 1;
+}
+
+h1 {
+  flex-basis: 100%; /*el elemento tendra todo el ancho*/
+  background-color: #03a9f4;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.lateral {
+  background-color: #95f13f;
+  width: 25%;
+  min-height: 500px;
+  /*FLEX*/
+  flex-grow: 0.5;
+  margin-left: 10px;
+}
+
+.footer {
+  flex-basis: 100%; /*el elemento tendra todo el ancho*/
+  background-color: #373638;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  margin-top: 10px;
+}
