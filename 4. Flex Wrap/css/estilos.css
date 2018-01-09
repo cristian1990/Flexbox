@@ -1,0 +1,55 @@
+/* PROPIEDAD FLEX WRAP
+  especifica si los artículos flexibles deben ajustarse o no.
+  • no-wrap (ajusta los eslementos al tamaño disponible)(por defecto)
+  • wrap (si no hay espacio colapsa)
+  • wrap-reverse (si no hay espacio colapsa de modo inverso)
+  • Initial (Establece esta propiedad a su valor predeterminado)
+  • Inherit (Hereda esta propiedad de su elemento principal)
+*/
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  /*el padding y el borde se resta al contenido (nunca excede el tamaño)*/
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
+
+body {
+  background-color: lightgray;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  border: 20px solid white;
+  height: 100vh; /*el 100% de mi viewport*/
+  /*FLEX*/
+  /*Display fexible*/
+  display: flex;
+  flex-direction: row; /*Disposicion en filas (por defecto)*/
+  flex-wrap: wrap;
+}
+
+div[class*="item-"] {
+  background: #a672ef;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #e7e8f3;
+  width: 300px;
+  /*flex*/
+  /*reparte el espacio que sobra entre los elementos (redimenciona)*/
+  flex-grow: 1;
+}
+
+div[class*="item-"]:nth-child(odd) {
+  background-color: #e2703c;
+  color: white;
+}

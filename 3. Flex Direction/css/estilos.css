@@ -1,0 +1,52 @@
+/* PROPIEDAD FLEX DIRECTION
+  Define cual es el Main axis(x) y cross axis(y) y su direccion
+  • row  (Fila con varias columnas) (por defecto)
+  • row-reverse  (Invierte el orden de la fila)
+  • column  (Columna con varias filas)
+  • column-reverse  (Invierte el orden de la columna)
+*/
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  /*el padding y el borde se resta al contenido (nunca excede el tamaño)*/
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
+
+body {
+  background-color: lightgray;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  border: 20px solid white;
+  /*FLEX*/
+  /*Display fexible*/
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /*el 100% de mi viewport*/
+}
+
+div[class*="item-"] {
+  background: #a672ef;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #e7e8f3;
+  /*flex*/
+  /*Todos ocupan lo mismo y todo el ancho disponible (flex 1)*/
+  flex: 1;
+}
+
+div[class*="item-"]:nth-child(odd) {
+  background-color: #e2703c;
+  color: white;
+}
