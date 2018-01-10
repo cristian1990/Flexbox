@@ -1,0 +1,86 @@
+/* PROPIEDAD flex
+  Se puede abreviar, es un conjunto de las propiedades
+  • flex-grow (establece la distribucion del espacio sobrante)(obligatorio)
+  • flex-shrink
+  • flex-basis
+*/
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
+
+body {
+  background-color: lightgray;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  border: 20px solid white;
+  height: 100vh;
+  font-size: 20px;
+  /*FLEX*/
+  display: flex;
+  flex-direction: row; /*Disposicion en filas (por defecto, no hace falta)*/
+  align-items: center; /*Centramos en el eje cross axis (en este caso vertical)*/
+}
+
+div[class*="item-"] {
+  background: #a672ef;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #e7e8f3;
+  flex: 1;
+}
+
+div[class*="item-"]:nth-child(odd) {
+  background-color: #e2703c;
+  color: white;
+}
+
+div[class*="item-"]:nth-child(3) {
+  background-color: black;
+  color: #6af314;
+  /*FLEX*/
+  /*flex-grow, hagarra todo el espacio extra 3 veces mayor al de los demas */
+  flex: 3;
+}
+
+div[class*="item-"]:nth-child(9) {
+  background-color: black;
+  color: #6af314;
+}
+
+@media (max-width: 768px) {
+  /*Selecciono el elemento 5*/
+  div[class*="item-"]:nth-child(5) {
+    background-color: red;
+	/*Aparece el elemento a la derecha*/
+    order: 1;
+  }
+
+  /*Selecciono el elemento 7*/
+  div[class*="item-"]:nth-child(7) {
+    background-color: yellow;
+    /*Aparece el elemento a la derecha*/
+    order: 1;
+
+  }
+
+  /*Selecciono el elemento 3*/
+  div[class*="item-"]:nth-child(3) {
+    background-color: black;
+    /*Aparece el elemento a la izquierda*/
+    order: -1;
+  }
+}

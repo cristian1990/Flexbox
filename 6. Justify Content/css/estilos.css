@@ -1,0 +1,74 @@
+/* PROPIEDAD justify-content
+  Alinea el contenido en el eje principal (main-axis)
+  • center (centra el contenido de el main-axis)
+  • flex-start (coloca el contenido a la izquierda) (por defecto)
+  • flex-end (coloca el contenido a la derecha)
+  • space-around (divide el espacio negativo que habia entre los elementos)
+  • space-between (pega el elemento al principio y al final, divide el espacio)
+*/
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
+
+body {
+  background-color: lightgray;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  border: 20px solid white;
+  height: 100vh;
+  font-size: 20px;
+  /*FLEX*/
+  display: flex;
+  flex-direction: row; /*Disposicion en filas (por defecto)*/
+  justify-content: center; /*Centra el contenido (main-axis)*/
+}
+
+div[class*="item-"] {
+  background: #a672ef;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #e7e8f3;
+  width: 80px;
+}
+
+div[class*="item-"]:nth-child(odd) {
+  background-color: #e2703c;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  /*Selecciono el elemento 5*/
+  div[class*="item-"]:nth-child(5) {
+    background-color: red;
+    order: 1; /*Aparece el elemento a la derecha*/
+  }
+
+  /*Selecciono el elemento 7*/
+  div[class*="item-"]:nth-child(7) {
+    background-color: yellow;
+    /*Aparece el elemento a la derecha*/
+    order: 1;
+
+  }
+
+  /*Selecciono el elemento 3*/
+  div[class*="item-"]:nth-child(3) {
+    background-color: black;
+    /*Aparece el elemento a la izquierda*/
+    order: -1;
+  }
+}
