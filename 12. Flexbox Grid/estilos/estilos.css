@@ -1,0 +1,211 @@
+*{
+	/*reseteo todo*/
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.contenedor{
+	background: #ccc;
+	width: 90%;
+	max-width: 1000px; /*No se pasa de los 1000px de ancho*/
+	margin: auto; /*Centra el contenedor*/
+
+	/*Flex*/
+	display: flex; /*padre de todos*/
+	flex-direction: row;
+	flex-wrap: wrap; /*si un elemento no cabe, se pasa abajo*/
+
+}
+
+body{
+	background: #e9e9e9;
+}
+
+header{
+	/*elemento hijo del contenedor - elemento padre de logotipo y navegacion*/
+	background: #2c3e50;
+	width: 100%; /*para que abarque toda la pagina*/
+	padding: 20px; /*espacio entre contenido y caja*/
+
+	/*Flex*/
+	display: flex; /*porque tambien es un elemento padre*/
+	justify-content: space-between; /*Hace que un elemento vaya a la izquierda y otro a la derecha*/
+	align-items: center; /*alineamos verticalmente una linea de elementos*/
+	flex-direction: row; /*pone los elementos en linea*/
+	flex-wrap: wrap; /*si un elemento no cabe, se pasa abajo*/
+}
+
+header .logo{ /*color y tamaño del logo*/
+	color: #fff;
+	font-size: 30px;
+}
+
+header .logo img{ /*ancho y alineacion del imagotipo*/
+	width: 150px;
+	vertical-align: top;
+}
+
+header .logo a{
+	color: #fff;
+	text-decoration: none; /*sin subrayado*/
+	line-height: 54px; /*centramos el logo, dependiendo del ancho del imagotipo*/
+}
+
+header nav{
+	width: 50%; /*va a tener un 50% de ancho, dependiendo de lo que mide la pagina*/
+
+	/*flex*/
+	display: flex; /*porque es un elemento padre*/
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+header nav a{
+	background: #c0392b;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+
+	/*Flex*/
+	flex-grow: 1; /*Todos los elementos abarcan el tamaño necesario para ocupar todo el espacio*/
+}
+
+header nav a:hover{ /*cuando estamos sobre el boton cambia de color*/
+	background: #e74c3c;
+}
+
+.main{
+	background: #fff;
+	padding: 20px;
+
+	/*flex*/
+	flex: 1 1 70%;
+}
+
+.main article{ /*agregamos un line entre cada articulo*/
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #000;
+}
+
+.main article:nth-last-child(1){ /*Al ultimo articulo, no le aplicamos ni el margen ni padding ni borde*/
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+aside{
+	background: #e67e22;
+	padding: 20px;
+
+	/*Flex*/
+	flex-grow: 1; /*Un número que especifica cuánto crecerá el artículo en relación con el resto de los artículos flexibles*/
+	flex-shrink: 1; /*Un número que especifica cuánto se encogerá el artículo en relación con el resto de los artículos flexibles*/
+	flex-basis: 30%; /*La longitud del artículo*/
+  /*flex: 1 1 30% (se puede abreviar asi)*/
+    display: flex; /*porque es un elemento padre*/
+    flex-wrap: wrap; /*Si los elementos no caben lo coloca abajo*/
+    flex-direction: column; /*Tenga una relacion de columnas*/
+    justify-content: flex-start; /*alinea los elementos del contenedor al principio*/
+}
+
+aside .widget{
+	background: #d35400;
+	height: 150px; /*Ponemos un alto de 150px*/
+	margin-bottom: 10px; /*Ponemos un margen abajo de 10px*/
+	margin-left: 10px; /*Ponemos un margen izquierda de 10px*/
+	margin-right: 10px; /*Ponemos un margen derecha de 10px*/
+	margin-top: 10px; /*Ponemos un margen arriba de 10px*/
+  /*margin: 10px; (se puede poner el margen 10px a todos los lados asi)*/
+}
+
+footer{
+	background: #2c3e50;
+	width: 100%; /*colocamos un ancho del 100%*/
+	padding: 20px;
+
+	/*Flex*/
+	display: flex; /*porque es un elemento padre*/
+	flex-wrap: wrap; /*Si los elementos no caben lo coloca abajo*/
+	justify-content: space-between; /*coloca un elemento a la izquierda y otro a la derecha*/
+}
+
+footer .links{
+	background: #c0392b;
+
+	/*Flex*/
+	display: flex; /*porque es un elemento padre*/
+	flex-wrap: wrap; /*Si los elementos no caben lo coloca abajo*/
+}
+
+footer .links a{ /*Botones*/
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;;
+
+	/*flex*/
+	flex-grow: 1; /*Deje que el un elemento flexible crezca 1 veces más que el resto:*/
+}
+
+footer .links a:hover{ /*cuando estamos sobre el boton cambia de color*/
+	background: #E74C3C;
+}
+
+footer .social{
+	background: #e67e22;
+}
+
+footer .social a{
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+	display: inline-block; /*alineamos un elemento a lado del otro (se podria hacer con flexbox)*/
+}
+
+/*Agregamos los media query para completar la responsividad*/
+@media screen and (max-width: 800px) { /*cuando el tamaño se 800px o menos*/
+	
+	.contenedor{
+		/*flex*/
+		flex-direction: column; /*los elementos los pasamos a columnas*/
+	}
+
+	header{
+		flex-direction: column;
+		padding: 0;
+	}
+
+	header .logo{
+		margin: 20px 0; /*margen 20px arriba y abajo y 0 hacia los lados*/
+	}
+
+	header nav{
+		width: 100%; /*cambiamos el ancho al 100%*/
+	}
+
+	aside{
+		/*flex*/
+		flex-direction: row; /*pasamos los elementos a filas*/
+		flex: 0;
+	}
+
+	aside .widget{
+		flex-grow: 1; /*Un número que especifica cuánto crecerá el artículo en relación con el resto de los artículos flexibles*/
+	}
+}
+
+
+/*Agregamos los media query para completar la responsividad*/
+@media screen and (max-width: 600px){ /*cuando el tamaño se 600px o menos*/
+
+	aside{
+		flex-direction: column; /*pasamos los elementos a columnas*/
+	}
+
+	footer{
+		justify-content: space-around; /*Los elementos se colocan con espacio antes, entre y después de las líneas*/
+	}
+}
